@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Inscrição</title>
+</head>
+<body>
+    <main class="area">
+        
+        <form class="formulario" action="/enviar" method="post">
+            
+            <div class="form-apresentacao">
+                <div class="form-apresentacao__voltar">
+                    <img src="./assets/arrow-left-02.png" alt="Seta para a esquerda">
+                    <p class="form-texto">Voltar</p>
+                </div>
+                    <div class="form-apresentacao__texto">
+                    <h1 class="form-titulo">Formulario de inscrição</h1>
+                    <p class="form-texto">Preencha os dados abaixo para fazer sua inscrição no Programa Trilhas.</p>
+                </div>
+            </div>
+
+            <section class="form-informacoes">
+                <h2 class="form-subtitulo">Informações do participante</h2>
+
+                <div class="campo">
+                    <label for="nome">Nome completo</label>
+                    <input id="nome" name="nome" type="text" placeholder="Seu nome"  maxlength="255" required>
+                </div>
+                <div class="campo">
+                    <label for="data-de-nascimento">Data de nascimento</label>
+                    <input id="data-de-nascimento" name="nascimento" type="text" placeholder="dd/mm/aaaa" maxlength="10" required>
+                </div>
+                <div class="campo">
+                    <label for="cpf">CPF</label>
+                    <input id="cpf" name="cpf" type="text" placeholder="xxx.xxx.xxx-xx" maxlength="14" required>
+                </div>
+                <div class="campo">
+                    <label for="sexo">Sexo</label>
+                    <div class="campo__select">
+                        <select name="sexo" id="sexo">
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                        <img class="campo__select__img" src="./assets/arrow-down-01.png" alt="Seta do select">
+                    </div>
+                </div>
+                <div class="campo">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="@gmail.com" maxlength="255" required>
+                </div>
+                <div class="campo">
+                    <label for="telefone">Telefone</label>
+                    <input id="telefone" name="telefone" type="text" placeholder="(xx) x xxxx-xxxx" maxlength="16" required>
+                </div>
+                <div class="campo">
+                    <label for="identidade">Documento de identidade</label>
+                    <label class="campo__uploads">Clique aqui para selecionar o arquivo</label>
+                    <input type="file" id="identidade" name="identidade" required>
+                </div>
+            </section>
+
+            <section class="form-endereco">
+                <h2 class="form-subtitulo">Endereço residencial</h2>
+
+                <div class="campo">
+                    <label for="cep">CEP</label>
+                    <input type="text" id="cep" name="cep" placeholder="xxxxx-xxx" required>
+                </div>
+                <div class="campo-duplo">
+                    <div class="campo-maior campo-desativado">
+                        <label for="rua">Rua</label>
+                        <input type="text" id="rua" name="rua" placeholder="Rua A">
+                    </div>
+                    <div class="campo">
+                        <label for="numero">Número</label>
+                        <input type="text" id="numero" name="numero" placeholder="10" required>
+                    </div>
+                </div>
+                <div class="campo-duplo campo-desativado">
+                    <div class="campo-maior">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" name="cidade" placeholder="Imperatriz" >
+                    </div>
+                    <div class="campo">
+                        <label for="estado">Estado</label>
+                        <input type="text" id="estado" name="estado" placeholder="MA">
+                    </div>
+                </div>
+                <div class="campo">
+                    <label for="residencia">Comprovante de residência</label>
+                    <label class="campo__uploads">Clique aqui para selecionar o arquivo</label>
+                    <input type="file" id="residencia" name="comprovante-de-residencia" required>
+                </div>
+            </section>
+
+            <section class="form-trilha">
+                <h2 class="form-subtitulo">Trilhas de apredizagem</h2>
+                <label class="form-texto">Selecione apenas uma trilha</label>
+
+                <div class="campo-botoes">
+                    <div>
+                        <label for="front-end">
+                            <input type="radio" name="trilha" id="front-end">
+                            <img class="campo-botoes__icon" src="./assets/icon-front.png" alt="">
+                            Programação Front-End
+                        </label>
+                    </div>
+
+                    <div>
+                        <label for="back-end">
+                            <input type="radio" name="trilha" id="back-end">
+                            <img class="campo-botoes__icon" src="./assets/icon-back.png" alt="">
+                            Programação Back-end
+                        </label>
+                    </div>
+
+                    <div>
+                        <label for="jogos">
+                            <input type="radio" name="trilha" id="jogos">
+                            <img class="campo-botoes__icon" src="./assets/icon-jogos.png" alt="">
+                            Programação de Jogos
+                        </label>
+                    </div>
+
+                    <div>
+                        <label for="design">
+                            <input type="radio" name="trilha" id="design">
+                            <img class="campo-botoes__icon" src="./assets/icon-ux.png" alt="">
+                            Design e Experiência
+                        </label>
+                    </div>
+
+                    <div>
+                        <label for="dados">
+                            <input type="radio" name="trilha" id="dados">
+                            <img class="campo-botoes__icon" src="./assets/icon-dados.png" alt="">
+                            Ciência de Dados
+                        </label>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="botoes">
+                <button type="submit" class="formulario__botao">cancelar></button>
+                <button type="submit" class="formulario__botao">Fazer inscrição</button>
+            </div>
+        </form>
+
+        <div class="ilustracao">
+            <img class="ilustracao__img" src="./assets/Ilustration.png" alt="Ilustracao">
+            <img class="ilustracao__logo" src="./assets/logo-trilhas.png" alt="Logo Trilhas Inova">
+        </div>
+
+    </main>
+</body>
+</html>
