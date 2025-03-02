@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/*Reset CSS*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh; /*cobrir toda pagina*/
+    box-sizing: border-box; /*elementos filhos não sair do elemento pai*/
+    
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+    
+}
+
+.formulario {
+    margin: 64px;
+} 
+
+.form-titulo {
+    font-family: "Poppins", serif;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.form-texto {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-size: 16px;    
+}
+
+h2 {
+    font-family: "Poppins", serif;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* teste
+.campo_texto {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.campo_texto_interno {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+*/
