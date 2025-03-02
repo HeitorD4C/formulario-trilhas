@@ -1,56 +1,241 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
-/*Reset CSS*/
+/* Variáveis CSS */
+:root {
+    /* Cores */
+    --brand-primary: #F67841;
+    --brand-secondary: #F3541C;
+    --brand-tertiary: #E43A12;
+    --brand-fourth: #2355A6;
+
+    --text-primary: #292524;
+    --text-secondary: #57534E;
+    --text-tertiary: #8F8881;
+    --text-highlight: #E43A12;
+
+    --surface-primary: #FFFFFF;
+    --surface-secondary: #FEE7D6;
+    --surface-disabled: #E7E5E4;
+
+    --stroke-default: #D6D3D1;
+    --stroke-highlight: #F3541C;
+
+    --semantic-error: #DC2626;
+
+    /* Fontes */
+    --font-primary: "Poppins", serif;
+    --font-secondary: "Montserrat", sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
 }
 
 body {
-    height: 100vh; /*cobrir toda pagina*/
-    box-sizing: border-box; /*elementos filhos não sair do elemento pai*/
-    
+    height: 100%;
+    box-sizing: border-box;
 }
 
-main {
+.container{
+    background-color: var(--brand-fourth);
     display: flex;
     justify-content: space-between;
-    height: 100vh;
-    
 }
 
+/* ===== Blocos ===== */
+
+/* Bloco: Formulário */
 .formulario {
-    margin: 64px;
-} 
+    background-color: var(--surface-primary);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 4rem;
+}
 
-.form-titulo {
-    font-family: "Poppins", serif;
+/* Bloco: Organiza o Cabeçalho do Formulario */
+.formulario__cabecalho{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/*Bloco: Organiza o Texto do Cabeçalho */
+.formulario__apresentacao{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/*Bloco: São os blocos apresentação, informações, endereço e trilhas */
+.formulario__secao{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Elemento: Título */
+.formulario__titulo {
+    color: var(--text-primary);
+    font-family: var(--font-primary);
     font-weight: 600;
-    font-size: 24px;
+    font-size: 1.5rem;
+    line-height: 1.875rem;
 }
 
-.form-texto {
-    font-family: "Poppins", serif;
-    font-weight: 400;
-    font-size: 16px;    
-}
-
-h2 {
-    font-family: "Poppins", serif;
+/* Elemento: Subtítulo */
+.formulario__subtitulo {
+    color: var(--text-primary);
+    font-family: var(--font-primary);
     font-weight: 600;
-    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.25rem;
 }
 
-/* teste
-.campo_texto {
-    font-family: "Poppins", serif;
+/* Elemento: Texto (É usado só no Cabeçalho)*/
+.formulario__texto {
+    color: var(--text-secondary);
+    font-family: var(--font-primary);
     font-weight: 400;
-    font-size: 14px;
+    font-size: 1rem;
+    line-height: 1.5rem;
 }
 
-.campo_texto_interno {
-    font-family: "Poppins", serif;
-    font-weight: 400;
-    font-size: 16px;
+/* Elemento: Botões de Ação (Cancelar/Fazer Inscrição)*/
+.formulario__botoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
 }
-*/
+
+/* Elemento: Ícone de Voltar do Cabeçalho */
+.formulario__voltar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
+/* Bloco: São todos os campos de perguntas */
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+/*Bloco: São os blocos com duas perguntas numa linha só*/
+.campo--duplo {
+    display: flex;
+    gap: 1.25rem;
+}
+
+/* Elemento: São os campos Rua e Cidade */
+.campo--maior{
+    width: 70%;
+}
+
+.campo--desativado label{
+    color: var(--text-secondary);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.campo--desativado input{
+    color: var(--text-secondary);
+    background-color: var(--surface-disabled);
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* Bloco: Campo Botões */
+.campo-botoes {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Bloco: Campo que Divide os Botoes de 2 em 2 */
+.campo-botoes__items{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Elemento: É o botao em si */
+.campo-botoes__items--item {
+    width: 48%;
+}
+
+/* Elemento: É o conteudo do botao, ta tudo dentro desse label */
+.campo-botoes__label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+
+    font-family: var(--font-secondary);
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+/*Elemento: Isso é pra ajustar o circulozinho no canto da tela*/
+.campo-botoes__label input{
+    align-self: baseline;
+    margin: 0.5rem 0 0 0.5rem;
+}
+
+/* Elemento: Label do Campo */
+.campo__label {
+    color: var(--text-secondary);
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.225rem;
+}
+
+/* Elemento: Input do Campo */
+.campo__input {
+    color: var(--text-primary);
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+
+    border: 1px solid var(--stroke-default);
+    border-radius: 4px;
+    min-height: 30px;
+}
+
+.campo__input--file{
+
+}
+
+/* Elemento: Select do Campo */
+.campo__select {
+
+}
+
+.campo__select__icone {
+
+}
+
+/* Elemento: Upload do Campo */
+.campo__upload {
+
+}
+
+/* Elemento: Ilustração */
+.ilustracao {
+
+}
+
+.ilustracao__imagem {
+
+}
+
+.ilustracao__logo {
+
+}
