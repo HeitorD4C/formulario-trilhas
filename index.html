@@ -63,8 +63,12 @@
                 </div>
 
                 <div class="campo">
-                    <label class="campo__label" for="identidade">Documento de identidade</label>
-                    <label class="campo__upload">Clique aqui para selecionar o arquivo</label>
+                    <label class="campo__label">Documento de identidade</label>
+                    <!--label da area de upload-->
+                    <label class="campo__upload" for="identidade" >
+                        <img class="cloud-upload__icon" src="./assets/cloud-upload.png" alt="">
+                        <span class="texto__upload">Clique aqui  para <br> selecionar o arquivo</span>
+                    </label>
                     <input class="campo__input--file" type="file" id="identidade" name="identidade" required>
                 </div>
             </section>
@@ -101,8 +105,12 @@
                 </div>
 
                 <div class="campo">
-                    <label class="campo__label" for="residencia">Comprovante de residência</label>
-                    <label class="campo__upload">Clique aqui para selecionar o arquivo</label>
+                    <label class="campo__label" >Comprovante de residência</label>
+                    <!--label da area de upload-->
+                    <label class="campo__upload" for="residencia">
+                        <img class="cloud-upload__icon" src="./assets/cloud-upload.png" alt="">
+                        <span class="texto__upload">Clique aqui  para <br> selecionar o arquivo</span>
+                    </label>
                     <input class="campo__input--file" type="file" id="residencia" name="comprovante-de-residencia" required>
                 </div>
             </section>
