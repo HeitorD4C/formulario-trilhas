@@ -160,16 +160,17 @@ body {
 /* Bloco: Campo que Divide os Botoes de 2 em 2 */
 .campo-botoes__items{
     display: flex;
-    justify-content: space-between;
+    gap: 1rem;
 }
 
 /* Elemento: É o botao em si */
 .campo-botoes__items--item {
     width: 48%;
+    display: flex;
 }
 
 /* Elemento: É o conteudo do botao, ta tudo dentro desse label */
-.campo-botoes__label{
+.campo-botoes__label {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -179,12 +180,50 @@ body {
     font-weight: 500;
     font-size: 1rem;
     line-height: 1.5rem;
+
+    cursor: pointer;
+
+    border: 1px solid var(--stroke-default);
+    border-radius: 8px;
+
+    width: 100%; /* Ocupa toda a largura do item */
+    min-height: 70px; /* Altura mínima para todos os botões */
 }
 
-/*Elemento: Isso é pra ajustar o circulozinho no canto da tela*/
-.campo-botoes__label input{
-    align-self: baseline;
+/* Elemento: o ':has()' verifica se o label tem um input checked */
+.campo-botoes__label:has(.campo-botoes__input:checked) {
+    border: 2px solid var(--stroke-highlight);
+}
+
+/* Elemento: Isso é pra ajustar o circulozinho no canto da tela */
+.campo-botoes__input {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid var(--stroke-default);
+    border-radius: 50%;
+    
+    align-self: flex-start;
     margin: 0.5rem 0 0 0.5rem;
+}
+
+/* Elemento: input clicado */
+.campo-botoes__input:checked {
+    background-color: var(--stroke-highlight);
+    background-image: url(/assets/check.png);
+    background-size: 13px 15px;
+    background-repeat: no-repeat; /* Isso é pra imagem não se repetir */
+    background-position: center;
+
+    border: 1.5px solid var(--stroke-highlight);
+    transform: scale(1.1); /*define o tamanho que o botao vai ficar quando clicado (110%) */
+    transform-origin: center;
+    transition: transform 0.25s; /* define o tempo da animação */
+}
+
+/* Elemento: icone das trilhas nos botoes */
+.campo-botoes__icone {
+    padding: 0.5rem;
 }
 
 /* Elemento: Label do Campo */
