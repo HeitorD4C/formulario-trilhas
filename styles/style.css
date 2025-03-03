@@ -248,9 +248,12 @@ body {
     min-height: 30px;
 }
 
+/*ocultar o botão de input nativo*/
 .campo__input--file{
-
+    display: none
+    
 }
+
 
 /* Elemento: Select do Campo */
 .campo__select {
@@ -263,18 +266,47 @@ body {
 
 /* Elemento: Upload do Campo */
 .campo__upload {
+    border: 1px dashed #D6D3D1; 
+    border-radius: 8px;
+    height: 160px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+    cursor: pointer;
+}
 
+/*icone do cloud-upload*/
+.cloud-upload__icon {
+    width: 48px;
+    height: 48px;
+}
+
+
+.texto__upload {
+    display: flex;
+    text-align: center;
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 16px;
 }
 
 /* Elemento: Ilustração */
 .ilustracao {
-
+    display: flex;
+    flex-direction: column;
+    gap: 71px;
+    align-items: center;    
 }
 
-.ilustracao__imagem {
 
+.ilustracao__imagem {
+    width: 500px;
+    height: 500px;       
 }
 
 .ilustracao__logo {
-
+    width: 212.25px;
+    height: 26,49px;
 }
