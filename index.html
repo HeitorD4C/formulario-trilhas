@@ -42,14 +42,11 @@
 
                 <div class="campo">
                     <label class="campo__label" for="sexo">Sexo</label>
-                    <div class="campo__select">
-                        <select class="campo__input" name="sexo" id="sexo">
+                        <select class="campo__select" name="sexo" id="sexo">
                             <option value="masculino">Masculino</option>
                             <option value="feminino">Feminino</option>
                             <option value="outro">Outro</option>
                         </select>
-                        <img class="campo__select__icone" src="./assets/arrow-down-01.png" alt="Seta do select">
-                    </div>
                 </div>
 
                 <div class="campo">
@@ -65,7 +62,7 @@
                 <div class="campo">
                     <label class="campo__label">Documento de identidade</label>
                     <!--label da area de upload-->
-                    <label class="campo__upload" for="identidade" >
+                    <label class="campo__upload" for="identidade">
                         <img class="cloud-upload__icon" src="./assets/cloud-upload.png" alt="">
                         <span class="texto__upload">Clique aqui  para <br> selecionar o arquivo</span>
                     </label>
@@ -125,52 +122,69 @@
                     <div class="campo-botoes">
                          <!-- Eu dividi os botoes de dois em dois -->
                           
-                        <div class="campo-botoes__items">
-                            <div class="campo-botoes__items--item">
-                                <label class="campo-botoes__label" for="front-end">
-                                    <input class="campo-botoes__input" type="radio" name="trilha" id="front-end" required>
-                                    <img class="campo-botoes__icone" src="./assets/icon-front.png" alt="">
-                                    Programação Front-End
-                                </label>
-                            </div>
-                            <div class="campo-botoes__items--item">
-                                <label class="campo-botoes__label" for="back-end">
-                                    <input class="campo-botoes__input" type="radio" name="trilha" id="back-end">
-                                    <img class="campo-botoes__icone" src="./assets/icon-back.png" alt="">
-                                    Programação Back-End
-                                </label>
-                            </div>
+                        <div class="campo-botoes__items--item">
+                            <label class="campo-botoes__label" for="front-end">
+                                <input class="campo-botoes__input" type="radio" name="trilha" id="front-end" required>
+                                <div  class="campo-botoes__icone">
+                                    <img class="campo-botoes__icone--icon" src="./assets/icon-front.png" alt="">
+                                </div>
+                                Programação Front-End
+                            </label>
                         </div>
 
-                        <div class="campo-botoes__items">
-                            <div class="campo-botoes__items--item">
-                                <label class="campo-botoes__label" for="programação-jogos">
-                                    <input class="campo-botoes__input" type="radio" name="trilha" id="programação-jogos">
-                                    <img class="campo-botoes__icone" src="./assets/icon-jogos.png" alt="">
-                                    Programação de Jogos
-                                </label>
-                            </div>
-                            <div class="campo-botoes__items--item">
-                                <label class="campo-botoes__label" for="design">
-                                    <input class="campo-botoes__input" type="radio" name="trilha" id="design">
-                                    <img class="campo-botoes__icone" src="./assets/icon-ux.png" alt="">
-                                    Design e Experiência
-                                </label>
-                            </div>
+                        <div class="campo-botoes__items--item">
+                            <label class="campo-botoes__label" for="back-end">
+                                <input class="campo-botoes__input" type="radio" name="trilha" id="back-end">
+                                <div  class="campo-botoes__icone">
+                                    <img class="campo-botoes__icone--icon" src="./assets/icon-back.png" alt="">
+                                </div>
+                                Programação Back-End
+                            </label>
+                        </div> 
+
+                        <div class="campo-botoes__items--item">
+                            <label class="campo-botoes__label" for="programação-jogos">
+                                <input class="campo-botoes__input" type="radio" name="trilha" id="programação-jogos">
+                                <div  class="campo-botoes__icone">
+                                    <img class="campo-botoes__icone--icon" src="./assets/icon-jogos.png" alt="">
+                                </div>
+                                Programação de Jogos
+                            </label>
                         </div>
 
-                        <div class="campo-botoes__items">
-                            <div class="campo-botoes__items--item">
-                                <label class="campo-botoes__label" for="ciencia-dados">
-                                    <input class="campo-botoes__input" type="radio" name="trilha" id="ciencia-dados">
-                                    <img class="campo-botoes__icone" src="./assets/icon-dados.png" alt="">
-                                    Ciência de Dados
-                                </label>
-                            </div>
+                        <div class="campo-botoes__items--item">
+                            <label class="campo-botoes__label" for="design">
+                                <input class="campo-botoes__input" type="radio" name="trilha" id="design">
+                                <div  class="campo-botoes__icone">
+                                    <img class="campo-botoes__icone--icon" src="./assets/icon-ux.png" alt="">
+                                </div>
+                                Design e Experiência
+                            </label>
+                        </div>
+                        
+                        <div class="campo-botoes__items--item">
+                            <label class="campo-botoes__label" for="ciencia-dados">
+                                <input class="campo-botoes__input" type="radio" name="trilha" id="ciencia-dados">
+                                <div  class="campo-botoes__icone">
+                                    <img class="campo-botoes__icone--icon" src="./assets/icon-dados.png" alt="">
+                                </div>
+                                Ciência de Dados
+                            </label>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <!-- Aceitar os Termos -->
+            <div class="formulario__termos">
+                <label class="termos__label" for="aceitar-termos">
+                    <input class="termos__input" type="radio" name="termos_e_condicoes" id="aceitar-termos" required>
+                    <div class="formulario__texto">
+                        Declaro que li e concordo com os <a class="termos__label--a" href="">Termos e Condições</a> e com a <a class="termos__label--a" href="">Política de Privacidade</a>.
+                    </div>
+                </label>
+                
+            </div>
 
             <!-- Botões de Ação -->
             <div class="formulario__botoes">
@@ -181,8 +195,10 @@
 
         <!-- Ilustração -->
         <div class="ilustracao">
-            <img class="ilustracao__imagem" src="./assets/Ilustration.png" alt="Ilustração">
-            <img class="ilustracao__logo" src="./assets/logo-trilhas.png" alt="Logo Trilhas Inova">
+            <div class="ilustracao__ilustracoes">
+                <img class="ilustracoes__imagem" src="./assets/Ilustration.png" alt="Ilustração">
+                <img class="ilustracoes__logo" src="./assets/logo-trilhas.png" alt="Logo Trilhas Inova">
+            </div>
         </div>
     </main>
 </body>
