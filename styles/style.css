@@ -153,13 +153,24 @@ body {
 
 }
 
-/* Elemento: Ícone de Voltar do Cabeçalho */
+/* Elemento: Parte de Voltar do Cabeçalho */
 .formulario__voltar {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+
+    color: var(--text-secondary);
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-decoration: none;
 }
 
+.formulario__voltar img{
+    width: 1.5rem;
+    height: 1.5rem;
+}
 
 /* Bloco: São todos os campos de perguntas */
 .campo {
@@ -293,6 +304,35 @@ body {
     border: 1px solid var(--stroke-default);
     border-radius: 4px;
     min-height: 30px;
+
+    padding: 0 0 0 6px;
+}
+
+.campo__input:focus{
+    box-shadow: 0 0 0 0;
+    border: 1px solid var(--stroke-default);
+    outline: 0;
+}
+
+/* Elemento: Quando o Input não é preenchido corretamente */
+.campo--incorreto input {
+    border: 1px solid var(--stroke-highlight);
+    box-shadow: 0 0 5px var(--stroke-highlight);
+}
+
+.campo--incorreto span{
+    background-image: url(/assets/alerta.png);
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: center;
+
+    color: var(--semantic-error);
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 140%;
+    padding: 0 0 0 1.6rem;
 }
 
 /*ocultar o botão de input nativo*/
