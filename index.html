@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="./styles/style.css">
     <title>Inscrição</title>
 
-    <script src="main.js" defer></script>
     <!-- Plugin JQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> 
     <!-- Mascara que o JQuery vai aplicar -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+    <script src="main.js" defer></script>
 </head>
 <body>
     <main class="container">
@@ -39,13 +39,13 @@
 
                 <div class="campo">
                     <label class="campo__label" for="data-de-nascimento">Data de nascimento</label>
-                    <input class="campo__input" id="data-de-nascimento" name="nascimento" type="text" placeholder="dd/mm/aaaa" maxlength="10" required>
+                    <input class="campo__input" id="data-de-nascimento" name="nascimento" type="text" placeholder="dd/mm/aaaa" minlength="10" required>
                     <span></span>
                 </div>
 
                 <div class="campo">
                     <label class="campo__label" for="cpf">CPF</label>
-                    <input class="campo__input" id="cpf" name="cpf" type="text" placeholder="Seu CPF" maxlength="14" required>
+                    <input class="campo__input" id="cpf" name="cpf" type="text" placeholder="Seu CPF" minlength="14" required>
                     <span></span>
                 </div>
 
@@ -60,24 +60,25 @@
 
                 <div class="campo">
                     <label class="campo__label" for="email">Email</label>
-                    <input class="campo__input" id="email" name="email" type="email" placeholder="Seu email" maxlength="255" required>
+                    <input class="campo__input" id="email" name="email" type="email" autocomplete="email" placeholder="Seu email" maxlength="255" required>
                     <span></span>
                 </div>
 
                 <div class="campo">
                     <label class="campo__label" for="telefone">Telefone</label>
-                    <input class="campo__input" id="telefone" name="telefone" type="text" placeholder="Seu telefone" maxlength="16" required>
+                    <input class="campo__input" id="telefone" name="telefone" type="text" placeholder="Seu telefone" minlength="15" required>
                     <span></span>
                 </div>
 
                 <div class="campo">
-                    <label class="campo__label">Documento de identidade</label>
+                    <label class="campo__label" for="identidade">Documento de identidade</label>
                     <!--label da area de upload-->
                     <label class="campo__upload" for="identidade">
                         <img class="cloud-upload__icon" src="./assets/cloud-upload.png" alt="">
-                        <span class="texto__upload">Clique aqui  para <br> selecionar o arquivo</span>
+                        <p class="texto__upload">Clique aqui  para <br> selecionar o arquivo</p>
+                        <input class="campo_input campo__input--file" type="file" id="identidade" name="identidade" accept=".jpg, .jpeg, .png, .pdf" required>
                     </label>
-                    <input class="campo__input--file" type="file" id="identidade" name="identidade" required>
+                    <span></span>
                 </div>
             </section>
 
@@ -87,19 +88,19 @@
 
                 <div class="campo">
                     <label class="campo__label" for="cep">CEP</label>
-                    <input class="campo__input" type="text" id="cep" name="cep" placeholder="Seu CEP" required>
+                    <input class="campo__input" type="text" id="cep" name="cep" placeholder="Seu CEP" minlength="9" required>
                     <span></span>
                 </div>
 
                 <div class="campo--duplo">
                     <div class="campo campo--maior">
                         <label class="campo__label" for="rua">Rua</label>
-                        <input class="campo__input" type="text" id="rua" name="rua" placeholder="Sua rua" required>
+                        <input class="campo__input" type="text" id="rua" name="rua" placeholder="Sua rua" maxlength="50" required>
                         <span></span>
                     </div>
                     <div class="campo">
                         <label class="campo__label" for="numero">Número</label>
-                        <input class="campo__input" type="text" id="numero" name="numero" placeholder="Número da casa" required>
+                        <input class="campo__input" type="text" id="numero" name="numero" placeholder="Número da casa" maxlength="5" required>
                         <span></span>
                     </div>
                 </div>
@@ -107,24 +108,25 @@
                 <div class="campo--duplo">
                     <div class="campo campo--maior">
                         <label class="campo__label" for="cidade">Cidade</label>
-                        <input class="campo__input" type="text" id="cidade" name="cidade" placeholder="Sua cidade" required>
+                        <input class="campo__input" type="text" id="cidade" name="cidade" placeholder="Sua cidade" maxlength="50" required>
                         <span></span>
                     </div>
                     <div class="campo">
                         <label class="campo__label" for="estado">Estado</label>
-                        <input class="campo__input" type="text" id="estado" name="estado" placeholder="Seu estado" required>
+                        <input class="campo__input" type="text" id="estado" name="estado" placeholder="Seu estado" maxlength="50" required>
                         <span></span>
                     </div>
                 </div>
 
                 <div class="campo">
-                    <label class="campo__label" >Comprovante de residência</label>
+                    <label class="campo__label" for="residencia">Comprovante de residência</label>
                     <!--label da area de upload-->
                     <label class="campo__upload" for="residencia">
                         <img class="cloud-upload__icon" src="./assets/cloud-upload.png" alt="">
-                        <span class="texto__upload">Clique aqui  para <br> selecionar o arquivo</span>
+                        <p class="texto__upload">Clique aqui  para <br> selecionar o arquivo</p>
+                        <input class="campo__input campo__input--file" type="file" id="residencia" name="comprovante-de-residencia" accept=".jpg, .jpeg, .png, .pdf" required>
                     </label>
-                    <input class="campo__input--file" type="file" id="residencia" name="comprovante-de-residencia" required>
+                    <span></span>
                 </div>
             </section>
 
@@ -133,7 +135,7 @@
                 <h2 class="formulario__subtitulo">Trilhas de Aprendizagem</h2>
 
                 <div class="campo">
-                    <label class="campo__label">Selecione apenas uma trilha</label>
+                    <p class="campo__label">Selecione apenas uma trilha</p>
                    
                     <div class="campo-botoes">
                          <!-- Eu dividi os botoes de dois em dois -->
