@@ -1,0 +1,39 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    box-sizing: border-box;
+    
+}
+
+.principal {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/assets/capa.png');
+    background-size: cover;
+}
+
+.caixa_formulario {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.75);
+    height: 18.75rem;
+    width: 18.75rem;
+    align-items: center;
+    justify-content: center;
+    border: 10px solid salmon ;
+    
+}
+
+.link_formulario {
+    text-decoration: none;
+    border: 2px solid ;
+    padding: 4px;
+    width: 50%;
+    text-align: center;
+    background-color: rgb(0, 119, 255);
+    color: black;
+}

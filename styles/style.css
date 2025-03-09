@@ -65,6 +65,8 @@ body {
     gap: 1.5rem;
 }
 
+
+
 /*Bloco: Organiza o Texto do Cabeçalho */
 .formulario__apresentacao {
     display: flex;
@@ -404,4 +406,8 @@ body {
 .ilustracoes__logo {
     width: 45%;
     height: 25%;
+}
+
+.pagina_introduçao {
+    text-decoration: none;
 }
