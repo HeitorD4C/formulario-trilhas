@@ -1,14 +1,7 @@
 const form = document.querySelector('form');
 const inputs = document.querySelectorAll('.campo__input');
 const inputsUpload = document.querySelectorAll('.campo__upload');
-
-// Máscaras dos dados
-$(document).ready(function(){
-    $('#data-de-nascimento').mask('00/00/0000');
-    $('#cpf').mask('000.000.000-00', {reverse: false});
-    $('#telefone').mask('(00) 00000-0000');
-    $('#cep').mask('00000-000');
-});
+const terms = document.querySelector('#aceitar-termos');
 
 // Verifica pra cada input se ele está preenchido corretamente
 inputs.forEach(function (input) {
@@ -25,6 +18,28 @@ inputsUpload.forEach(function(inputUpload) {
         uploadArquive(fileInput, e);
     });
 });
+
+function submitForm() {
+    let canSubmit = true;
+    let parent;
+
+    inputs.forEach(function (input) {
+        parent = input.closest('.campo');
+        if(parent.classList.contains('campo--incorreto')){
+            canSubmit = false;
+            event.preventDefault();
+        }
+    });
+
+    if(canSubmit && form.checkValidity()){
+        form.submit();
+        event.preventDefault();
+        window.location.href = "end.html";
+    }else{
+        event.preventDefault();
+        alert('Erro! Existem cmapos vazios ou preenchidos incorretamente');
+    }
+}
 
 // Valida se um input está correto e adiciona ou remove a classe campo--incorreto
 function validate(input, event) {
