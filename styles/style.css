@@ -146,13 +146,14 @@ body {
     font-weight: 500;
     font-size: 1rem;
     line-height: 1.5rem;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .botao--secundario {
     color: var(--text-highlight);
     border: 1px solid var(--text-highlight);
     background-color: var(--surface-primary);
-
 }
 
 /* Elemento: Parte de Voltar do Cabeçalho */
@@ -404,6 +405,7 @@ body {
     height: 19px;
     border: 1.5px solid var(--stroke-default);
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .termos__input:checked {

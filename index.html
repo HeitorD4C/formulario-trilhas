@@ -10,11 +10,12 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> 
     <!-- Mascara que o JQuery vai aplicar -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
-    <script src="main.js" defer></script>
+    <script src="./js/masks.js"></script>
+    <script src="./js/main.js" defer></script>
 </head>
 <body>
     <main class="container">
-        <form class="formulario" action="/enviar" method="post">
+        <form class="formulario" action="/submit" method="POST">
             <!-- Cabeçalho do Formulário -->
             <div class="formulario__cabecalho">
                     <a class="formulario__voltar" href="intro.html">
@@ -196,7 +197,7 @@
             <!-- Aceitar os Termos -->
             <div class="formulario__termos">
                 <label class="termos__label" for="aceitar-termos">
-                    <input class="termos__input" type="radio" name="termos_e_condicoes" id="aceitar-termos" required>
+                    <input class="termos__input" type="checkbox" name="termos_e_condicoes" id="aceitar-termos" required>
                     <div class="formulario__texto">
                         Declaro que li e concordo com os <a class="termos__label--a" href="">Termos e Condições</a> e com a <a class="termos__label--a" href="">Política de Privacidade</a>.
                     </div>
@@ -207,7 +208,7 @@
             <!-- Botões de Ação -->
             <div class="formulario__botoes">
                 <button class="botao botao--secundario" type="reset">Cancelar</button>
-                <button class="botao" type="submit">Fazer Inscrição</button>
+                <button class="botao" onclick="submitForm()">Fazer Inscrição</button>
             </div>
         </form>
 
