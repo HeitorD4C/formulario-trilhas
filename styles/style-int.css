@@ -22,43 +22,42 @@ body {
 }
 
 .principal {
-    height: 100vh;
+    height: 85vh;
     display: flex;
     justify-content: center;
     align-items: start;
     background-image: url('/assets/capa.png');
     background-size: cover;
-    padding-top: 5%;
+    padding-top: 12%;
 }
 
-.caixa_formulario {
-    display: flex;
-    background-color: rgba(255, 255, 255, 0.75);
-    height: 12rem;
-    width: 20rem;
-    align-items: center;
-    justify-content: center;
-    border: 10px solid var(--brand-fourth);
-    border-radius: 6px;
-    
-}
+
 
 /*botao*/
 .link_formulario {
     text-decoration: none;
     border-radius: 8px;
-    padding: 0.25rem;
-    width: 50%;
+    padding: 0.75rem 1.5rem 0.75rem 1.5rem;
+    width: 25%;
     text-align: center;
     background-color: var(--brand-fourth);
     color: var(--surface-primary);
     font-family: var(--font-primary);
+    border: 2px solid var(--surface-primary);
+    font-weight: 500;
+    font-size: 1rem;
+    box-shadow: 0 9px #999;
 }
 
 .link_formulario:hover {
     background-color: #4358cd;
-   
 }
+
+.link_formulario:active {
+    background-color: #1f285d;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
 
 .rodape {
     background-color: var(--brand-fourth);
