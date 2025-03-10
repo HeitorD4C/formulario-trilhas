@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 * {
     margin: 0px;
     padding: 0px;
@@ -7,7 +10,16 @@ body {
     box-sizing: border-box;
 }
 
+:root {
+    /* Cores */
+    --brand-fourth: #2355A6;
 
+    --surface-primary: #FFFFFF;
+
+    /* Fontes */
+    --font-primary: "Poppins", serif;
+    --font-secondary: "Montserrat", sans-serif;
+}
 
 .principal {
     height: 100vh;
@@ -26,20 +38,21 @@ body {
     width: 20rem;
     align-items: center;
     justify-content: center;
-    border: 10px solid #2135A6;
+    border: 10px solid var(--brand-fourth);
     border-radius: 6px;
     
 }
 
+/*botao*/
 .link_formulario {
     text-decoration: none;
-    border: 2px solid #2135A6;
-    border-radius: 4px;
+    border-radius: 8px;
     padding: 0.25rem;
     width: 50%;
     text-align: center;
-    background-color: #2135A6;
-    color: white;
+    background-color: var(--brand-fourth);
+    color: var(--surface-primary);
+    font-family: var(--font-primary);
 }
 
 .link_formulario:hover {
@@ -48,7 +61,11 @@ body {
 }
 
 .rodape {
-    background-color: #2135A6;
+    background-color: var(--brand-fourth);
     text-align: center;
     padding: 1%;
+    font-family: var(--font-secondary);
+    color: var(--surface-primary);
+
+    
 }
