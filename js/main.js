@@ -2,6 +2,7 @@ const form = document.querySelector('form');
 const inputs = document.querySelectorAll('.campo__input');
 const inputsUpload = document.querySelectorAll('.campo__upload');
 const terms = document.querySelector('#aceitar-termos');
+const cep = document.querySelector("#cep")
 
 // Verifica pra cada input se ele está preenchido corretamente
 inputs.forEach(function (input) {
@@ -85,3 +86,17 @@ function uploadArquive(input, e) {
     const arqName = e.target.files[0].name;
     p.innerHTML = `Arquivo recebido! <br> ${arqName}`; 
 }
+
+
+// Prenchimento automático de endereço
+cep.addEventListener("blur", () => {
+  const cepNum = cep.value.replace(/[^0-9]+/, ""); 
+
+  fetch(`https://viacep.com.br/ws/${cepNum}/json/`)
+    .then((response) => response.json())
+    .then((data) => {
+      document.querySelector("#rua").value = data.logradouro || ""
+      document.querySelector("#cidade").value = data.localidade || ""
+      document.querySelector("#estado").value = data.uf || ""
+    })
+});
