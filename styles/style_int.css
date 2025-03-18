@@ -13,6 +13,8 @@ body {
 :root {
     /* Cores */
     --brand-fourth: #2355A6;
+    --brand-fifth: #1f285d;
+    --brand-sixth: #0b0358;
 
     --surface-primary: #FFFFFF;
 
@@ -28,36 +30,38 @@ body {
     align-items: start;
     background-image: url('/assets/capa.png');
     background-size: cover;
-    padding-top: 12%;
+    padding: 0 0 10% 0;
 }
-
-
 
 /*botao*/
 .link_formulario {
-    text-decoration: none;
-    border-radius: 8px;
-    padding: 0.75rem 1.5rem 0.75rem 1.5rem;
-    width: 25%;
-    text-align: center;
-    background-color: var(--brand-fourth);
     color: var(--surface-primary);
+    background-color: var(--brand-fourth);
+    width: 25%;
+
     font-family: var(--font-primary);
-    border: 2px solid var(--surface-primary);
     font-weight: 500;
     font-size: 1rem;
-    box-shadow: 0 9px #999;
+    text-decoration: none;
+    text-align: center;
+     
+    border: 2px solid var(--surface-primary);
+    border-radius: 8px;
+    box-shadow: 0 9px 6px var(--brand-sixth);
+
+    align-self: flex-end;
+    padding: 0.75rem 1.5rem 0.75rem 1.5rem;
 }
 
 .link_formulario:hover {
-    background-color: #4358cd;
+    background-color: var(--brand-fourth);
 }
 
 .link_formulario:active {
-    background-color: #1f285d;
-    box-shadow: 0 5px #666;
+    background-color: var(--brand-fifth);
+    box-shadow: 0 1px 3px var(--surface-primary);
     transform: translateY(4px);
-  }
+}
 
 .rodape {
     background-color: var(--brand-fourth);
@@ -65,6 +69,4 @@ body {
     padding: 1%;
     font-family: var(--font-secondary);
     color: var(--surface-primary);
-
-    
 }
