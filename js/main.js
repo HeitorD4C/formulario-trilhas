@@ -94,15 +94,19 @@ cep.addEventListener("blur", () => {
         rua.value = data.logradouro || ""
         cidade.value = data.localidade || ""
         estado.value = data.uf || ""
-        
-        disableCamp(rua);
-        disableCamp(cidade);
-        disableCamp(estado);
+
+        toggleDisabledCamp(rua);
+        toggleDisabledCamp(cidade);
+        toggleDisabledCamp(estado);
     })
 });
 
-function disableCamp(element){
+function toggleDisabledCamp(element){
     const parent = element.closest('.campo');
 
-    parent.classList.add('campo--desativado');
+    if(element.value === ""){
+        parent.classList.remove('campo--desativado');
+    }else{
+        parent.classList.add('campo--desativado');
+    }
 }
