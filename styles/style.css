@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
-/* Variáveis CSS */
 :root {
-    /* Cores */
     --brand-primary: #F67841;
     --brand-secondary: #F3541C;
     --brand-tertiary: #E43A12;
@@ -23,7 +21,6 @@
 
     --semantic-error: #DC2626;
 
-    /* Fontes */
     --font-primary: "Poppins", serif;
     --font-secondary: "Montserrat", sans-serif;
 }
@@ -45,9 +42,6 @@ body {
     width: 90%;
 }
 
-/* ===== Blocos ===== */
-
-/* Bloco: Formulário */
 .formulario {
     background-color: var(--surface-primary);
     border-radius: 16px 0 0 16px;
@@ -58,23 +52,18 @@ body {
     padding: 4rem;
 }
 
-/* Bloco: Organiza o Cabeçalho do Formulario */
 .formulario__cabecalho {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
-
-
-/*Bloco: Organiza o Texto do Cabeçalho */
 .formulario__apresentacao {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-/*Bloco: São os blocos apresentação, informações, endereço e trilhas */
 .formulario__secao {
     display: flex;
     flex-direction: column;
@@ -86,7 +75,6 @@ body {
     height: 3rem;
 }
 
-/* Elemento: Título */
 .formulario__titulo {
     color: var(--text-primary);
     font-family: var(--font-primary);
@@ -95,7 +83,6 @@ body {
     line-height: 1.875rem;
 }
 
-/* Elemento: Subtítulo */
 .formulario__subtitulo {
     color: var(--text-primary);
     font-family: var(--font-primary);
@@ -104,7 +91,6 @@ body {
     line-height: 1.25rem;
 }
 
-/* Elemento: Texto (É usado só no Cabeçalho)*/
 .formulario__texto {
     color: var(--text-secondary);
     font-family: var(--font-primary);
@@ -113,7 +99,6 @@ body {
     line-height: 1.5rem;
 }
 
-/*Bloco: Termos*/
 .termos__label {
     display: flex;
     justify-content: center;
@@ -127,14 +112,12 @@ body {
     font-weight: 500;
 }
 
-/* Elemento: Botões de Ação (Cancelar/Fazer Inscrição)*/
 .formulario__botoes {
     display: flex;
     justify-content: flex-end;
     gap: 1rem;
 }
 
-/*Elemento: Botao Fazer Inscrição*/
 .botao {
     color: var(--surface-primary);
     background-color: var(--brand-tertiary);
@@ -156,7 +139,6 @@ body {
     background-color: var(--surface-primary);
 }
 
-/* Elemento: Parte de Voltar do Cabeçalho */
 .formulario__voltar {
     display: flex;
     align-items: center;
@@ -175,20 +157,17 @@ body {
     height: 1.5rem;
 }
 
-/* Bloco: São todos os campos de perguntas */
 .campo {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
 }
 
-/*Bloco: São os blocos com duas perguntas numa linha só*/
 .campo--duplo {
     display: flex;
     gap: 1.25rem;
 }
 
-/* Elemento: São os campos Rua e Cidade */
 .campo--maior {
     width: 70%;
 }
@@ -206,20 +185,17 @@ body {
     opacity: 0.6;
 }
 
-/* Bloco: Campo Botões */
 .campo-botoes {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
 }
 
-/* Elemento: É o botao em si */
 .campo-botoes__items--item {
     width: 49%;
     display: flex;
 }
 
-/* Elemento: É o conteudo do botao, ta tudo dentro desse label */
 .campo-botoes__label {
     display: flex;
     flex-direction: column;
@@ -237,16 +213,14 @@ body {
     border: 1px solid var(--stroke-default);
     border-radius: 8px;
 
-    width: 100%; /* Ocupa toda a largura do item */
+    width: 100%;
 }
 
-/* Elemento: o ':has()' verifica se o label tem um input checked */
 .campo-botoes__label:has(.campo-botoes__input:checked) {
     box-shadow: 0 0 0 2px var(--stroke-highlight);
     border: 1px solid transparent;
 }
 
-/* Elemento: Isso é pra ajustar o circulozinho no canto da tela */
 .campo-botoes__input {
     appearance: none;
     width: 20px;
@@ -258,21 +232,19 @@ body {
     margin: 0.5rem 0 0 0.5rem;
 }
 
-/* Elemento: input clicado */
 .campo-botoes__input:checked {
     background-color: var(--stroke-highlight);
     background-image: url(/assets/check.png);
     background-size: 13px 15px;
-    background-repeat: no-repeat; /* Isso é pra imagem não se repetir */
+    background-repeat: no-repeat;
     background-position: center;
 
     border: 1.5px solid var(--stroke-highlight);
-    transform: scale(1.1); /*define o tamanho que o botao vai ficar quando clicado (110%) */
+    transform: scale(1.1);
     transform-origin: center;
-    transition: transform 0.25s; /* define o tempo da animação */
+    transition: transform 0.25s;
 }
 
-/* Elemento: div com um icone das trilhas nos botoes */
 .campo-botoes__icone {
     width: calc(40px / 1rem);
     height: calc(40px / 1rem);
@@ -281,13 +253,11 @@ body {
     justify-content: center;
 }
 
-/*Elemento: o icon */
 .campo-botoes__icone--icon {
     width: 90%;
     height: 90%;
 }
 
-/* Elemento: Label do Campo */
 .campo__label {
     color: var(--text-secondary);
     font-family: var(--font-primary);
@@ -296,7 +266,6 @@ body {
     line-height: 1.225rem;
 }
 
-/* Elemento: Input do Campo */
 .campo__input {
     color: var(--text-primary);
     font-family: var(--font-primary);
@@ -315,7 +284,6 @@ body {
     outline: 0;
 }
 
-/* Elemento: Quando o Input não é preenchido corretamente */
 .campo--incorreto input {
     border: 1px solid var(--stroke-highlight);
     box-shadow: 0 0 5px var(--stroke-highlight);
@@ -336,12 +304,10 @@ body {
     padding: 0 0 0 1.6rem;
 }
 
-/*ocultar o botão de input nativo*/
 .campo__input--file {
    display: none;
 }
 
-/* Elemento: Select do Campo */
 .campo__select {
     color: var(--text-primary);
     font-family: var(--font-primary);
@@ -364,7 +330,6 @@ body {
     padding: 0 0 0 6px;
 }
 
-/* Elemento: Upload do Campo */
 .campo__upload {
     border: 1.5px dashed var(--stroke-default);
     border-radius: 8px;
@@ -383,7 +348,6 @@ body {
     width: 60%;
 }
 
-/*icone do cloud-upload*/
 .cloud-upload__icon {
     width: 10%;
     height: 55%;
@@ -421,7 +385,6 @@ body {
     transition: transform 0.25s;
 }
 
-/* Elemento: Ilustração */
 .ilustracao {
     background-color: var(--brand-fourth);
     border-radius: 0 16px 16px 0;

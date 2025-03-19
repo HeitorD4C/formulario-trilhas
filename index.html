@@ -6,17 +6,15 @@
     <link rel="stylesheet" href="./styles/style.css">
     <title>Trilhas Inova</title>
 
-    <!-- Plugin JQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> 
-    <!-- Mascara que o JQuery vai aplicar -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
     <script src="./js/masks.js"></script>
     <script src="./js/main.js" defer></script>
+
 </head>
 <body>
     <main class="container">
         <form class="formulario" action="/submit" method="POST">
-            <!-- Cabeçalho do Formulário -->
             <div class="formulario__cabecalho">
                     <a class="formulario__voltar" href="intro.html">
                         <img src="./assets/arrow-left-02.png" alt="Seta para a esquerda">
@@ -28,7 +26,6 @@
                 </div>
             </div>
 
-            <!-- Seção: Informações do Participante -->
             <section class="formulario__secao">
                 <h2 class="formulario__subtitulo">Informações do Participante</h2>
 
@@ -73,7 +70,6 @@
 
                 <div class="campo">
                     <label class="campo__label" for="identidade">Documento de identidade</label>
-                    <!--label da area de upload-->
                     <label class="campo__upload" for="identidade">
                         <img class="cloud-upload__icon" src="./assets/cloud-upload.png" alt="">
                         <p class="texto__upload">Clique aqui  para <br> selecionar o arquivo</p>
@@ -83,7 +79,6 @@
                 </div>
             </section>
 
-            <!-- Seção: Endereço -->
             <section class="formulario__secao">
                 <h2 class="formulario__subtitulo">Endereço Residencial</h2>
 
@@ -121,7 +116,6 @@
 
                 <div class="campo">
                     <label class="campo__label" for="residencia">Comprovante de residência</label>
-                    <!--label da area de upload-->
                     <label class="campo__upload" for="residencia">
                         <img class="cloud-upload__icon" src="./assets/cloud-upload.png" alt="">
                         <p class="texto__upload">Clique aqui  para <br> selecionar o arquivo</p>
@@ -131,7 +125,6 @@
                 </div>
             </section>
 
-            <!-- Seção: Trilhas -->
             <section class="formulario__secao">
                 <h2 class="formulario__subtitulo">Trilhas de Aprendizagem</h2>
 
@@ -139,7 +132,6 @@
                     <p class="campo__label">Selecione apenas uma trilha</p>
                    
                     <div class="campo-botoes">
-                         <!-- Eu dividi os botoes de dois em dois -->
                           
                         <div class="campo-botoes__items--item">
                             <label class="campo-botoes__label" for="front-end">
@@ -194,7 +186,6 @@
                 </div>
             </section>
 
-            <!-- Aceitar os Termos -->
             <div class="formulario__termos">
                 <label class="termos__label" for="aceitar-termos">
                     <input class="termos__input" type="checkbox" name="termos_e_condicoes" id="aceitar-termos" required>
@@ -205,14 +196,12 @@
                 
             </div>
 
-            <!-- Botões de Ação -->
             <div class="formulario__botoes">
                 <button class="botao botao--secundario" type="reset">Cancelar</button>
                 <button class="botao" onclick="submitForm()">Fazer Inscrição</button>
             </div>
         </form>
 
-        <!-- Ilustração -->
         <div class="ilustracao">
             <div class="ilustracao__ilustracoes">
                 <img class="ilustracoes__imagem" src="./assets/Ilustration.png" alt="Ilustração">

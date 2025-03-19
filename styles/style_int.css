@@ -11,14 +11,12 @@ body {
 }
 
 :root {
-    /* Cores */
     --brand-fourth: #2355A6;
     --brand-fifth: #1f285d;
     --brand-sixth: #0b0358;
 
     --surface-primary: #FFFFFF;
 
-    /* Fontes */
     --font-primary: "Poppins", serif;
     --font-secondary: "Montserrat", sans-serif;
 }
@@ -33,15 +31,14 @@ body {
     padding: 0 0 10% 0;
 }
 
-/*botao*/
 .link_formulario {
     color: var(--surface-primary);
     background-color: var(--brand-fourth);
-    width: 25%;
+    width: 20%;
 
     font-family: var(--font-primary);
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 1.2rem;
     text-decoration: none;
     text-align: center;
      
