@@ -63,16 +63,38 @@ body {
     display: flex;
     flex-direction: column;
     padding: 2rem 4rem 2rem 4rem;
-    gap: 3.4rem;
+    gap: 3rem;
 }
 
 .cadastro__campos {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 /* Conteudo do Cadastro */
+.cadastro__cabecalho {
+
+}
+
+.cabecalho--voltar {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+
+    color: var(--text-secondary);
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-decoration: none;
+}
+
+.cabecalho--voltar img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
 .titulo {
     color: var(--text-primary);
     font-family: var(--font-primary);
@@ -80,9 +102,10 @@ body {
     font-size: 3rem;
     line-height: 120%;
 
-    align-self: center;
+    justify-self: center;
 }
 
+/* Campos */
 .campo {
     display: flex;
     flex-direction: column;
@@ -103,14 +126,26 @@ body {
     padding: 0 0 0 6px;
 }
 
+/* Requisitos da senhas */
+.requisitos--senha {
+    display: flex;
+    flex-direction: column;
+}
+
+.requisitos--senha ul {
+    padding: 0 0 0 16px;
+}
+
 .texto {
-    color: var(--text-primary);
+    color: var(--text-secondary);
     font-family: var(--font-primary);
     font-weight: 500;
     font-size: 0.9rem;
     line-height: 120%;
+}
 
-    align-self: flex-end;
+span {
+    color: var(--text-highlight);
 }
 
 /* Botões */

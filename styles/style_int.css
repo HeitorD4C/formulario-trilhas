@@ -63,13 +63,13 @@ body {
     display: flex;
     flex-direction: column;
     padding: 2rem 4rem 2rem 4rem;
-    gap: 3.4rem;
+    gap: 3rem;
 }
 
 .loguin__campos {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 /* Conteudo do Loguin */

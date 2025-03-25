@@ -36,7 +36,7 @@ function submitForm() {
     if(canSubmit && form.checkValidity()){
         form.submit();
         event.preventDefault();
-        window.location.href = "end.html";
+        window.location.href = "register.html";
     }else{
         event.preventDefault();
         alert('Erro! Existem cmapos vazios ou preenchidos incorretamente');
