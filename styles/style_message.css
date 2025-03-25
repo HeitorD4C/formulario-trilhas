@@ -1,3 +1,7 @@
+:root{
+    --background-image: url('/assets/ilustracoes/capa-1.png');
+}
+
 body{
     height: 100vh;
 }

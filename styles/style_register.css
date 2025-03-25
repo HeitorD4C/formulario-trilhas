@@ -54,7 +54,7 @@ body {
     gap: 50px;
 }
 
-.loguin {
+.cadastro {
     width: 30%;
 
     background-color: var(--surface-primary);
@@ -66,13 +66,13 @@ body {
     gap: 3.4rem;
 }
 
-.loguin__campos {
+.cadastro__campos {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
-/* Conteudo do Loguin */
+/* Conteudo do Cadastro */
 .titulo {
     color: var(--text-primary);
     font-family: var(--font-primary);
@@ -114,7 +114,7 @@ body {
 }
 
 /* Botões */
-.loguin__botoes {
+.cadastro__botoes {
     display: flex;
     flex-direction: column;
     align-items: center;

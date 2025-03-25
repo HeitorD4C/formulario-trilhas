@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style_register.css">
     <title>Trilhas Inova</title>
-    <link rel="stylesheet" href="styles/style_int.css">
 
 </head>
-
 <body>
     <main class="principal">
 
         <img class="logo" src="assets/ilustracoes/logo-trilhas-1.png" alt="Logo Trilhas">
 
-        <div class="loguin">
-            <h2 class="titulo">Boas-vindas</h2>
+        <div class="cadastro">
+            <div class="cadastro__cabecalho">
+                <a href="intro.html">
+                    <img src="./assets/icons/arrow-left-02.png" alt="Seta para a esquerda">
+                    Voltar
+                </a>
+                <h2 class="titulo">Crie sua conta</h2>
+            </div>
 
-            <div class="loguin__campos">
+            <div class="cadastro__campos">
                 <div class="campo">
                     <input class="campo__input" id="nome" name="nome" type="text" placeholder="Nome de Usuário"
                         maxlength="255" required>
@@ -32,7 +36,7 @@
                 <a class="texto" href="">Esqueceu a senha?</a>
             </div>
 
-            <div class="loguin__botoes">
+            <div class="cadastro__botoes">
                 <a class="botao" href="">Entrar</a>
                 <a class="botao botao--secundario" href="index.html">Criar conta</a>
             </div>

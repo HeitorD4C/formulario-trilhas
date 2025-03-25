@@ -23,6 +23,10 @@
 
     --font-primary: "Poppins", serif;
     --font-secondary: "Montserrat", sans-serif;
+
+    --icon-check: url(/assets/icons/check.png);
+    --icon-alert: url(/assets/icons/alerta.png);
+    --icon-arrow-down: url(/assets/icons/arrow-down-01.png);
 }
 
 * {
@@ -234,7 +238,7 @@ body {
 
 .campo-botoes__input:checked {
     background-color: var(--stroke-highlight);
-    background-image: url(/assets/check.png);
+    background-image: var(--icon-check);
     background-size: 13px 15px;
     background-repeat: no-repeat;
     background-position: center;
@@ -290,7 +294,7 @@ body {
 }
 
 .campo--incorreto span {
-    background-image: url(/assets/alerta.png);
+    background-image: var(--icon-alert);
     background-size: 18px;
     background-repeat: no-repeat;
     background-position-x: left;
@@ -319,7 +323,7 @@ body {
     border-radius: 4px;
     min-height: 30px;
     
-    background-image: url(/assets/arrow-down-01.png);
+    background-image: var(--icon-arrow-down);
     background-size: 20px 20px;
     background-repeat: no-repeat;
     background-position-x: 99%;
@@ -374,7 +378,7 @@ body {
 
 .termos__input:checked {
     background-color: var(--stroke-highlight);
-    background-image: url(/assets/check.png);
+    background-image: var(--icon-check);
     background-size: 13px 15px;
     background-repeat: no-repeat;
     background-position: center;
