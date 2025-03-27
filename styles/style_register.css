@@ -73,9 +73,7 @@ body {
 }
 
 /* Conteudo do Cadastro */
-.cadastro__cabecalho {
 
-}
 
 .cabecalho--voltar {
     display: flex;
@@ -184,4 +182,23 @@ span {
     background-color: var(--surface-primary);
 
     font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+
+    .cadastro {
+        width: 70%;
+        height: 70%;
+    }
+
+    .logo {
+        padding-top: 10%;
+    }
+
+    .cadastro__cabecalho {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
 }
