@@ -419,3 +419,50 @@ body {
 .pagina_introduçao {
     text-decoration: none;
 }
+
+@media (max-width: 600px) {
+    body {
+        width: auto;
+        
+    }
+
+    .container {
+        flex-wrap: wrap-reverse;
+        width: auto;
+        
+        
+    }
+
+    .formulario {
+        border-radius: 0;
+    }
+
+    .campo--duplo {
+        flex-wrap: wrap;
+    }
+
+    .campo-botoes {
+        text-align: center;
+    }
+
+    .campo-botoes__items--item {
+        width: 48%;
+    }
+
+    .formulario__texto {
+        font-size: 0.9rem;
+    }
+
+    .termos__input {
+        width: 15%;
+        height: 20px;
+    }
+
+    .ilustracao {
+        width: auto;
+        border-radius: 0;
+    }
+
+    
+        
+}
