@@ -27,6 +27,8 @@
     --icon-check: url(/assets/icons/check.png);
     --icon-alert: url(/assets/icons/alerta.png);
     --icon-arrow-down: url(/assets/icons/arrow-down-01.png);
+
+    --background-image: url('/assets/ilustracoes/capa-1.png');
 }
 
 * {
@@ -36,7 +38,8 @@
 
 body {
     height: 100%;
-    background-color: var(--text-primary);
+    background-image: var(--background-image);
+    background-size: cover;
     display: flex;
     justify-content: center;
 }
@@ -462,7 +465,4 @@ body {
         width: auto;
         border-radius: 0;
     }
-
-    
-        
 }
