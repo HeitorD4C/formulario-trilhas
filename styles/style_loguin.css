@@ -25,6 +25,8 @@
     --font-primary: "Poppins", serif;
     --font-secondary: "Montserrat", sans-serif;
 
+    --icon-alert: url(/assets/icons/alerta.png);
+
     --background-image: url('/assets/ilustracoes/capa-1.png');
 }
 
@@ -101,6 +103,21 @@ body {
     min-height: 30px;
 
     padding: 0 0 0 6px;
+}
+
+.span--aviso {
+    background-image: var(--icon-alert);
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: center;
+
+    color: var(--semantic-error);
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 140%;
+    padding: 0 0 0 1.6rem;
 }
 
 .texto {

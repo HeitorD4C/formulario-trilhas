@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style_form.css">
+    <title>Trilhas Inova</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+    <script src="./js/masks.js"></script>
+    <script src="./js/form.js" defer></script>
+
+</head>
+<body>
+    <main class="container">
+        <form class="formulario" action="/submit" method="POST">
+            <div class="formulario__cabecalho">
+                    <a class="formulario__voltar" href="index.html">
+                        <img src="./assets/icons/arrow-left-02.png" alt="Seta para a esquerda">
+                        Voltar
+                    </a>
+                <div class="formulario__apresentacao">
+                    <h1 class="formulario__titulo">Formulário de Inscrição</h1>
+                    <p class="formulario__texto">Preencha os dados abaixo para fazer seu cadastro no Programa Trilhas.</p>
+                </div>
+            </div>
+
+            <section class="formulario__secao">
+                <h2 class="formulario__subtitulo">Informações do Participante</h2>
+
+                <div class="campo">
+                    <label class="campo__label" for="nome">Nome completo</label>
+                    <input class="campo__input" id="nome" name="nome" type="text" placeholder="Seu nome" maxlength="255" required>
+                    <span></span>
+                </div>
+
+                <div class="campo">
+                    <label class="campo__label" for="data-de-nascimento">Data de nascimento</label>
+                    <input class="campo__input" id="data-de-nascimento" name="nascimento" type="text" placeholder="dd/mm/aaaa" minlength="10" required>
+                    <span></span>
+                </div>
+
+                <div class="campo">
+                    <label class="campo__label" for="cpf">CPF</label>
+                    <input class="campo__input" id="cpf" name="cpf" type="text" placeholder="Seu CPF" minlength="14" required>
+                    <span></span>
+                </div>
+
+                <div class="campo">
+                    <label class="campo__label" for="sexo">Sexo</label>
+                        <select class="campo__select" name="sexo" id="sexo">
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                </div>
+
+                <div class="campo">
+                    <label class="campo__label" for="email">Email</label>
+                    <input class="campo__input" id="email" name="email" type="email" autocomplete="email" placeholder="Seu email" maxlength="255" required>
+                    <span></span>
+                </div>
+
+                <div class="campo">
+                    <label class="campo__label" for="telefone">Telefone</label>
+                    <input class="campo__input" id="telefone" name="telefone" type="text" placeholder="Seu telefone" minlength="15" required>
+                    <span></span>
+                </div>
+
+                <div class="campo">
+                    <label class="campo__label" for="identidade">Documento de identidade</label>
+                    <label class="campo__upload" for="identidade">
+                        <img class="cloud-upload__icon" src="./assets/icons/cloud-upload.png" alt="">
+                        <p class="texto__upload">Clique aqui  para <br> selecionar o arquivo</p>
+                        <input class="campo_input campo__input--file" type="file" id="identidade" name="identidade" accept=".jpg, .jpeg, .png, .pdf" required>
+                    </label>
+                    <span></span>
+                </div>
+            </section>
+
+            <section class="formulario__secao">
+                <h2 class="formulario__subtitulo">Endereço Residencial</h2>
+
+                <div class="campo">
+                    <label class="campo__label" for="cep">CEP</label>
+                    <input class="campo__input" type="text" id="cep" name="cep" placeholder="Seu CEP" minlength="9" required>
+                    <span></span>
+                </div>
+
+                <div class="campo--duplo">
+                    <div class="campo campo--maior">
+                        <label class="campo__label" for="rua">Rua</label>
+                        <input class="campo__input" type="text" id="rua" name="rua" placeholder="Sua rua" maxlength="50" required>
+                        <span></span>
+                    </div>
+                    <div class="campo">
+                        <label class="campo__label" for="numero">Número</label>
+                        <input class="campo__input" type="text" id="numero" name="numero" placeholder="Número da casa" maxlength="5" required>
+                        <span></span>
+                    </div>
+                </div>
+
+                <div class="campo--duplo">
+                    <div class="campo campo--maior">
+                        <label class="campo__label" for="cidade">Cidade</label>
+                        <input class="campo__input" type="text" id="cidade" name="cidade" placeholder="Sua cidade" maxlength="50" required>
+                        <span></span>
+                    </div>
+                    <div class="campo">
+                        <label class="campo__label" for="estado">Estado</label>
+                        <input class="campo__input" type="text" id="estado" name="estado" placeholder="Seu estado" maxlength="2" required>
+                        <span></span>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label class="campo__label" for="residencia">Comprovante de residência</label>
+                    <label class="campo__upload" for="residencia">
+                        <img class="cloud-upload__icon" src="./assets/icons/cloud-upload.png" alt="">
+                        <p class="texto__upload">Clique aqui  para <br> selecionar o arquivo</p>
+                        <input class="campo__input campo__input--file" type="file" id="residencia" name="comprovante-de-residencia" accept=".jpg, .jpeg, .png, .pdf" required>
+                    </label>
+                    <span></span>
+                </div>
+            </section>
+
+            <section class="formulario__secao">
+                <h2 class="formulario__subtitulo">Trilhas de Aprendizagem</h2>
+
+                <div class="campo">
+                    <p class="campo__label">Selecione apenas uma trilha</p>
+                   
+                    <div class="campo-botoes">
+                          
+                        <div class="campo-botoes__items--item">
+                            <label class="campo-botoes__label" for="front-end">
+                                <input class="campo-botoes__input" type="radio" name="trilha" id="front-end" required>
+                                <div  class="campo-botoes__icone">
+                                    <img class="campo-botoes__icone--icon" src="./assets/icons/icon-front.png" alt="">
+                                </div>
+                                Programação Front-End
+                            </label>
+                        </div>
+
+                        <div class="campo-botoes__items--item">
+                            <label class="campo-botoes__label" for="back-end">
+                                <input class="campo-botoes__input" type="radio" name="trilha" id="back-end">
+                                <div  class="campo-botoes__icone">
+                                    <img class="campo-botoes__icone--icon" src="./assets/icons/icon-back.png" alt="">
+                                </div>
+                                Programação Back-End
+                            </label>
+                        </div> 
+
+                        <div class="campo-botoes__items--item">
+                            <label class="campo-botoes__label" for="programação-jogos">
+                                <input class="campo-botoes__input" type="radio" name="trilha" id="programação-jogos">
+                                <div  class="campo-botoes__icone">
+                                    <img class="campo-botoes__icone--icon" src="./assets/icons/icon-jogos.png" alt="">
+                                </div>
+                                Programação de Jogos
+                            </label>
+                        </div>
+
+                        <div class="campo-botoes__items--item">
+                            <label class="campo-botoes__label" for="design">
+                                <input class="campo-botoes__input" type="radio" name="trilha" id="design">
+                                <div  class="campo-botoes__icone">
+                                    <img class="campo-botoes__icone--icon" src="./assets/icons/icon-ux.png" alt="">
+                                </div>
+                                Design e Experiência
+                            </label>
+                        </div>
+                        
+                        <div class="campo-botoes__items--item">
+                            <label class="campo-botoes__label" for="ciencia-dados">
+                                <input class="campo-botoes__input" type="radio" name="trilha" id="ciencia-dados">
+                                <div  class="campo-botoes__icone">
+                                    <img class="campo-botoes__icone--icon" src="./assets/icons/icon-dados.png" alt="">
+                                </div>
+                                Ciência de Dados
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="formulario__termos">
+                <label class="termos__label" for="aceitar-termos">
+                    <input class="termos__input" type="checkbox" name="termos_e_condicoes" id="aceitar-termos" required>
+                    <div class="formulario__texto">
+                        Declaro que li e concordo com os <a class="termos__label--a" href="">Termos e Condições</a> e com a <a class="termos__label--a" href="">Política de Privacidade</a>.
+                    </div>
+                </label>
+                
+            </div>
+
+            <div class="formulario__botoes">
+                <button class="botao botao--secundario" type="reset">Cancelar</button>
+                <button class="botao" onclick="submitForm()">Continuar</button>
+            </div>
+        </form>
+
+        <div class="ilustracao">
+            <div class="ilustracao__ilustracoes">
+                <img class="ilustracoes__imagem" src="./assets/ilustracoes/Ilustration.png" alt="Ilustração">
+                <img class="ilustracoes__logo" src="./assets/ilustracoes/logo-trilhas.png" alt="Logo Trilhas Inova">
+            </div>
+        </div>
+    </main>
+</body>
+</html>

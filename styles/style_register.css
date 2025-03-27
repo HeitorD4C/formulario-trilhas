@@ -73,10 +73,6 @@ body {
 }
 
 /* Conteudo do Cadastro */
-.cadastro__cabecalho {
-
-}
-
 .cabecalho--voltar {
     display: flex;
     align-items: center;
