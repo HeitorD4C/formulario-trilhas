@@ -49,7 +49,7 @@ body {
     justify-content: space-between;
     align-items: center;
 
-    padding: .5% 2% .5% 2%;
+    padding: .5% 1% .5% 2%;
 }
 
 .header__sidebar {
@@ -164,6 +164,27 @@ body {
         background-size: cover;
     }
 
+    .header__sidebar {
+        width: 10%;
+        gap: .8rem;
+    }
+
+    .sidebar--icon {
+        width: 60%;
+    }
+
+    .sidebar--bar {
+        width: 100%;
+    }
+
+    .header--texto {
+        font-size: 1rem;
+    }
+
+    .header--logo {
+        width: 30%;
+    }
+    
     .atividades__atividade {
         border-radius: 12px;
     
@@ -177,6 +198,6 @@ body {
 
     .botao {
         width: 10%;
-        font-size: 80%;
+        font-size: 1rem;
     }
 }

@@ -1,6 +1,7 @@
 const form = document.querySelector('form');
 const inputs = document.querySelectorAll('.campo__input');
 const inputsUpload = document.querySelectorAll('.campo__upload');
+const buttons = document.querySelectorAll('.botao');
 const terms = document.querySelector('#aceitar-termos');
 const rua = document.querySelector("#rua");
 const cidade = document.querySelector("#cidade");
@@ -86,19 +87,21 @@ function uploadArquive(input, e) {
 }
 
 cep.addEventListener("blur", () => {
-    const cepNum = cep.value.replace(/[^0-9]+/, "");
+    if(cep.validity.valid){
+        const cepNum = cep.value.replace(/[^0-9]+/, "");
   
-    fetch(`https://viacep.com.br/ws/${cepNum}/json/`)
-      .then((response) => response.json())
-      .then((data) => {
-        rua.value = data.logradouro || ""
-        cidade.value = data.localidade || ""
-        estado.value = data.uf || ""
-
-        toggleDisabledCamp(rua);
-        toggleDisabledCamp(cidade);
-        toggleDisabledCamp(estado);
-    })
+        fetch(`https://viacep.com.br/ws/${cepNum}/json/`)
+          .then((response) => response.json())
+          .then((data) => {
+            rua.value = data.logradouro || ""
+            cidade.value = data.localidade || ""
+            estado.value = data.uf || ""
+    
+            toggleDisabledCamp(rua);
+            toggleDisabledCamp(cidade);
+            toggleDisabledCamp(estado);
+        })
+    }
 });
 
 function toggleDisabledCamp(element){
@@ -109,4 +112,35 @@ function toggleDisabledCamp(element){
     }else{
         parent.classList.add('campo--desativado');
     }
+}
+
+buttons.forEach(function (button) {
+    button.addEventListener('click', () => {
+        if(button.classList.contains('botao--secundario')) {
+            clearForm();
+        }else{
+            submitForm();
+        }
+    });
+});
+
+function clearForm(input) {
+    inputs.forEach(function(input) {
+        input.value = '';
+        const parent = input.closest('.campo');
+        
+        parent.classList.remove('campo--incorreto', 'campo--desativado');
+        
+        const span = parent.querySelector('span');
+        if (span) span.textContent = '';
+    });
+
+    inputsUpload.forEach(function(inputUpload) {
+        const fileInput = inputUpload.querySelector('input[type="file"]');
+        fileInput.value = '';
+        const p = fileInput.previousElementSibling;
+        if (p) p.innerHTML = 'Clique aqui para <br> selecionar o arquivo';
+    });
+
+    if (terms) terms.checked = false;
 }
