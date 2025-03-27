@@ -40,6 +40,7 @@
 body {
     height: 100vh;
     background-image: var(--background-image);
+    background-size: cover;
 }
 
 .header {
@@ -86,7 +87,7 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    padding: 3% 3% 0 3%;
+    padding: 4% 5% 0 5%;
 }
 
 .atividades {
@@ -94,7 +95,7 @@ body {
     align-self: center;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .atividades__atividade {
@@ -139,4 +140,43 @@ body {
     line-height: 1.5rem;
     text-decoration: none;
     cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+}
+
+.botao:hover {
+    transform: scale(1.1);
+    transform-origin: center;
+    transition: transform 0.25s;
+}
+
+/* Responsividade */
+@media(min-width: 1000px) {
+    body {
+        background-size: 100%;
+    }
+}
+
+@media(max-width: 700px) {
+    body {
+        background-size: 50%;
+        background-size: cover;
+    }
+
+    .atividades__atividade {
+        border-radius: 12px;
+    
+        padding: 1% 2% 1% 2%;
+        gap: 15px;
+    }
+    
+    .campo--titulo {
+        font-size: 90%;
+    }
+
+    .botao {
+        width: 10%;
+        font-size: 80%;
+    }
 }

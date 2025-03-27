@@ -423,21 +423,21 @@ body {
     text-decoration: none;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
     body {
         width: auto;
-        
     }
 
     .container {
+        align-self: center;
         flex-wrap: wrap-reverse;
-        width: auto;
-        
-        
+        width: 90%;
     }
 
     .formulario {
-        border-radius: 0;
+        width: 100%;
+        border-radius: 0 0 32px 32px;
+        padding: 5% 5% 2% 5%;
     }
 
     .campo--duplo {
@@ -462,7 +462,11 @@ body {
     }
 
     .ilustracao {
-        width: auto;
-        border-radius: 0;
+        width: 100%;
+        border-radius: 32px 32px 0 0;
+    }
+
+    .ilustracoes__logo {
+        padding: 0 0 8% 0;
     }
 }

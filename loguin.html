@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style_loguin.css">
 
-    <script src="js/loguin=.js"></script>
     <title>Trilhas Inova</title>
 
+    <script src="js/loguin.js" defer></script>
 </head>
 
 <body>
@@ -21,20 +21,19 @@
 
             <div class="login__campos">
                 <div class="campo">
-                    <input class="campo__input" name="nome" type="text" placeholder="Nome de Usuário" minlength="20"
-                        required>
+                    <input class="campo__input" name="nome" type="text" placeholder="Nome de Usuário" maxlength="20">
                 </div>
 
                 <div class="campo">
                     <input class="campo__input" name="nascimento" type="password" placeholder="Senha" minlength="10"
-                        maxlength="24" required>
+                        maxlength="24">
                 </div>
                 <a class="texto" href="">Esqueceu a senha?</a>
             </div>
 
-            <div class="login__botoes">
-                <a class="botao" href="">Entrar</a>
-                <a class="botao botao--secundario" href="register.html">Criar conta</a>
+            <div class="loguin__botoes">
+                <button class="botao">Entrar</button>
+                <button class="botao botao--secundario">Criar conta</button>
             </div>
         </div>
 
