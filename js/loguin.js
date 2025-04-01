@@ -1,5 +1,8 @@
 const inputs = document.querySelectorAll('.campo__input');
 const buttons = document.querySelectorAll('.botao');
+const senha = localStorage.Senha || localStorage.senha
+const usuario = localStorage.usuario || localStorage.Usuario
+
 
 buttons.forEach(function (button) {
     button.addEventListener('click', () => {
@@ -26,6 +29,13 @@ function inputValidate() {
         }
     });
 
+    
+    if (inputs[0].value !== usuario || inputs[1].value !== senha) {
+        isValid = false;
+
+    } else {
+        isValid = true
+    }
     return isValid
 }
 

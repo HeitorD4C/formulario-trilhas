@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style_register.css">
     <title>Trilhas Inova</title>
+    <script src="./js/register.js" defer></script>
 
 </head>
 
@@ -28,25 +29,25 @@
                 <div class="campo">
                     <input class="campo__input" id="nome--usuario" name="nome--usuario" type="text" placeholder="Nome de Usuário"
                         maxlength="255" required>
-                    <span></span>
+                    
                 </div>
 
                 <div class="campo">
                     <input class="campo__input" id="senha" name="senha" type="password"
-                        placeholder="Criar uma senha" minlength="10" maxlength="25" required>
-                    <span></span>
+                        placeholder="Criar uma senha" minlength="6" maxlength="25" required>
+                    
                 </div>
 
                 <div class="campo">
-                    <input class="campo__input" id="senha" name="senha" type="password"
-                        placeholder="Confirmar senha" minlength="10" maxlength="25" required>
-                    <span></span>
+                    <input class="campo__input" id="confirmaSenha" name="senha" type="password"
+                        placeholder="Confirmar senha" minlength="6" maxlength="25" required>
+                    
                 </div>
 
                 <div class="requisitos--senha">
                     <p class="texto">A <span>senha</span> deve conter, no mínimo:
                     <ul>
-                        <li class="texto">10 dígitos</li>
+                        <li class="texto">6 dígitos</li>
                         <li class="texto">Uma letra maiúscula</li>
                         <li class="texto">Um número</li>
                         <li class="texto">Um símbolo</li>
@@ -55,7 +56,7 @@
             </div>
 
             <div class="cadastro__botoes">
-                <a class="botao" href="">Cadastrar</a>
+                <button class="botao">Cadastrar</button>
             </div>
         </div>
 
