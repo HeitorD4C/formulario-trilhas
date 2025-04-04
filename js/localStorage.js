@@ -14,9 +14,7 @@ export function saveForm() {
     });
 
     trilhas.forEach(element => {
-        if (element.checked) {
-            localStorage.setItem('trilha', `${element.getAttribute('id')}`);
-        }
+        localStorage.setItem(`${element.getAttribute('id')}`, `${element.checked}`);
     });
 
     localStorage.setItem('termos', `${terms.checked}`);
@@ -39,9 +37,7 @@ export function autoFillForm() {
     });
 
     trilhas.forEach(element => {
-        if(element.getAttribute('id') === localStorage.getItem('trilha')){
-            element.checked = true;
-        }
+        element.checked = (localStorage.getItem(`${element.getAttribute('id')}`) === 'true') ? true : false;
     })
 
     terms.checked = localStorage.getItem('termos') === 'true';

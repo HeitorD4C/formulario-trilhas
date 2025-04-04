@@ -1,69 +1,141 @@
 import { saveForm } from "./localStorage.js";
 
-const form = document.querySelector('form');
-const inputs = document.querySelectorAll('.campo__input');
-const inputsUpload = document.querySelectorAll('.campo__input--file');
-const buttons = document.querySelectorAll('.botao');
-const terms = document.querySelector('#aceitar-termos');
-const trilhas = document.querySelectorAll('.campo-botoes__input');
-const rua = document.querySelector("#rua");
-const cidade = document.querySelector("#cidade");
-const estado = document.querySelector("#estado");
-const cep = document.querySelector("#cep");
+// ========== Elemetos do Domínio ========== //
 
-inputs.forEach(function (input) {
+const dom = {
+    form: document.querySelector('form'),
+    inputs: document.querySelectorAll('.campo__input'),
+    fileInputs: document.querySelectorAll('.campo__input--file'),
+    buttons: document.querySelectorAll('.botao'),
+    terms: document.querySelector('#aceitar-termos'),
+    trilhas: document.querySelectorAll('.campo-botoes__input'),
+};
+const address = {
+    rua: document.querySelector("#rua"),
+    cidade: document.querySelector("#cidade"),
+    estado: document.querySelector("#estado"),
+    cep: document.querySelector("#cep")
+}
+
+// ========== Event Listeners ========== //
+
+dom.inputs.forEach(function (input) {
     input.addEventListener('change', function (e) {
         validate(input, e);
     });
 });
 
-inputsUpload.forEach(function (inputUpload) {
-    inputUpload.addEventListener('change', function (e) {
-        validate(inputUpload, e);
-        uploadArquive(inputUpload, e);
+dom.fileInputs.forEach(function (fileInput) {
+    fileInput.addEventListener('change', function (e) {
+        validate(fileInput, e);
+        uploadArquive(fileInput, e);
     });
 });
 
+dom.buttons.forEach(function (button) {
+    button.addEventListener('click', () => {
+        event.preventDefault();
+
+        if (button.classList.contains('botao--secundario')) {
+            clear();
+        } else {
+            if (button.classList.contains('botao--salvar')) {
+                saveForm();
+            } else {
+                submitForm();
+            }
+        }
+    });
+});
+
+address.cep.addEventListener("blur", () => {
+    if (address.cep.validity.valid) {
+        const cepNum = address.cep.value.replace(/[^0-9]+/, "");
+
+        fetch(`https://viacep.com.br/ws/${cepNum}/json/`)
+            .then((response) => response.json())
+            .then((data) => {
+                address.rua.value = data.logradouro || ""
+                address.cidade.value = data.localidade || ""
+                address.estado.value = data.uf || ""
+
+                toggleDisabledCamp(address.rua);
+                toggleDisabledCamp(address.cidade);
+                toggleDisabledCamp(address.estado);
+            })
+    }
+});
+
+// ========== Funçoes ========== //
+
 function submitForm() {
     let canSubmit = true;
-    let parent;
+    event.preventDefault();
 
-    inputs.forEach(function (input) {
-        parent = input.closest('.campo');
+    dom.inputs.forEach(function (input) {
+        const parent = input.closest('.campo');
         if (parent.classList.contains('campo--incorreto')) {
             canSubmit = false;
-            event.preventDefault();
         }
     });
 
-    if (canSubmit && form.checkValidity()) {
-        form.submit();
-        event.preventDefault();
+    if (canSubmit && dom.form.checkValidity()) {
+        dom.form.submit();
         window.location.href = "index.html";
     } else {
-        event.preventDefault();
         alert('Erro! Existem cmapos vazios ou preenchidos incorretamente');
     }
 }
 
-function validate(input, event) {
-    let isValid;
-    const maxSize = (1024 * 1000);
+function clear() {
 
-    if (input.type === 'file') {
-        isValid = (event.target.files.length === 1) && (input.files[0].size <= maxSize) ? true : false;
-    } else {
-        isValid = input.validity.valid;
-    }
+    dom.inputs.forEach(function (input) {
+        input.value = '';
+        const parent = input.closest('.campo');
 
-    toggleIncorretClass(input, !isValid);
+        parent.classList.remove('campo--incorreto', 'campo--desativado');
+
+        const span = parent.querySelector('span');
+        if (span) span.textContent = '';
+    });
+
+    dom.fileInputs.forEach(function (fileInput) {
+        fileInput.value = '';
+        const p = fileInput.previousElementSibling;
+        if (p) p.innerHTML = 'Clique aqui para <br> selecionar o arquivo';
+    });
+
+    dom.trilhas.forEach(function (trilha) {
+        if (trilha.checked) trilha.checked = false;
+    })
+
+    if (dom.terms) dom.terms.checked = false;
 }
 
-function toggleIncorretClass(element, isIncorrect) {
+
+function validate(input, event) {
+    let isValid = true;
+
+    if (input.type === 'file') {
+        const maxSize = (1024 * 1000);
+        isValid = (event.target.files.length === 1) && (input.files[0].size <= maxSize) ? true : false;
+    } else {
+        if (input.getAttribute('id') === 'email') {
+            const emailRegex = /[a-z!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z](?:[a-z-]*[a-z])?\.)+[a-z](?:[a-z-]*[a-z])?/gi;
+            isValid = emailRegex.test(input.value) ? true : false;
+        } else {
+            isValid = input.validity.valid;
+        }
+    }
+
+    errorClass(input, isValid);
+}
+
+function errorClass(element, isValid) {
     const parent = element.closest('.campo');
     const span = parent.querySelector('span');
 
-    if (isIncorrect) {
+    if (!isValid) {
         if (!parent.classList.contains('campo--incorreto')) {
             span.textContent = 'Preencha o campo corretamente';
             parent.classList.add('campo--incorreto');
@@ -85,26 +157,8 @@ function uploadArquive(input, e) {
     }
 
     const arqName = e.target.files[0].name;
-    p.innerHTML = `Arquivo recebido! <br> ${arqName}`;
+    p.innerHTML = `Arquivo carregado! <br> ${arqName}`;
 }
-
-cep.addEventListener("blur", () => {
-    if (cep.validity.valid) {
-        const cepNum = cep.value.replace(/[^0-9]+/, "");
-
-        fetch(`https://viacep.com.br/ws/${cepNum}/json/`)
-            .then((response) => response.json())
-            .then((data) => {
-                rua.value = data.logradouro || ""
-                cidade.value = data.localidade || ""
-                estado.value = data.uf || ""
-
-                toggleDisabledCamp(rua);
-                toggleDisabledCamp(cidade);
-                toggleDisabledCamp(estado);
-            })
-    }
-});
 
 export function toggleDisabledCamp(element) {
     const parent = element.closest('.campo');
@@ -114,45 +168,4 @@ export function toggleDisabledCamp(element) {
     } else {
         parent.classList.add('campo--desativado');
     }
-}
-
-buttons.forEach(function (button) {
-    button.addEventListener('click', () => {
-        event.preventDefault();
-
-        if (button.classList.contains('botao--secundario')) {
-            clearForm();
-        } else {
-            if (button.classList.contains('botao--salvar')) {
-                saveForm();
-            } else {
-                submitForm();
-            }
-        }
-    });
-});
-
-function clearForm(input) {
-
-    inputs.forEach(function (input) {
-        input.value = '';
-        const parent = input.closest('.campo');
-
-        parent.classList.remove('campo--incorreto', 'campo--desativado');
-
-        const span = parent.querySelector('span');
-        if (span) span.textContent = '';
-    });
-
-    inputsUpload.forEach(function (inputUpload) {
-        inputUpload.value = '';
-        const p = inputUpload.previousElementSibling;
-        if (p) p.innerHTML = 'Clique aqui para <br> selecionar o arquivo';
-    });
-
-    trilhas.forEach(function (trilha) {
-        if(trilha.checked) trilha.checked = false;
-    })
-
-    if (terms) terms.checked = false;
 }
