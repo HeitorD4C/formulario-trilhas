@@ -1,24 +1,26 @@
+import { saveForm } from "./localStorage.js";
+
 const form = document.querySelector('form');
 const inputs = document.querySelectorAll('.campo__input');
-const inputsUpload = document.querySelectorAll('.campo__upload');
+const inputsUpload = document.querySelectorAll('.campo__input--file');
 const buttons = document.querySelectorAll('.botao');
 const terms = document.querySelector('#aceitar-termos');
+const trilhas = document.querySelectorAll('.campo-botoes__input');
 const rua = document.querySelector("#rua");
 const cidade = document.querySelector("#cidade");
 const estado = document.querySelector("#estado");
 const cep = document.querySelector("#cep");
 
 inputs.forEach(function (input) {
-    input.addEventListener('change', function(e) {
+    input.addEventListener('change', function (e) {
         validate(input, e);
     });
 });
 
-inputsUpload.forEach(function(inputUpload) {
-    const fileInput = inputUpload.querySelector('input[type="file"]');
-    fileInput.addEventListener('change', function(e) {
-        validate(fileInput, e);
-        uploadArquive(fileInput, e);
+inputsUpload.forEach(function (inputUpload) {
+    inputUpload.addEventListener('change', function (e) {
+        validate(inputUpload, e);
+        uploadArquive(inputUpload, e);
     });
 });
 
@@ -28,17 +30,17 @@ function submitForm() {
 
     inputs.forEach(function (input) {
         parent = input.closest('.campo');
-        if(parent.classList.contains('campo--incorreto')){
+        if (parent.classList.contains('campo--incorreto')) {
             canSubmit = false;
             event.preventDefault();
         }
     });
 
-    if(canSubmit && form.checkValidity()){
+    if (canSubmit && form.checkValidity()) {
         form.submit();
         event.preventDefault();
         window.location.href = "index.html";
-    }else{
+    } else {
         event.preventDefault();
         alert('Erro! Existem cmapos vazios ou preenchidos incorretamente');
     }
@@ -77,70 +79,80 @@ function toggleIncorretClass(element, isIncorrect) {
 function uploadArquive(input, e) {
     const p = input.previousElementSibling;
 
-    if(e.target.files.length < 1){
+    if (e.target.files.length < 1) {
         p.innerHTML = 'Clique aqui para <br> selecionar o arquivo';
         return
     }
 
     const arqName = e.target.files[0].name;
-    p.innerHTML = `Arquivo recebido! <br> ${arqName}`; 
+    p.innerHTML = `Arquivo recebido! <br> ${arqName}`;
 }
 
 cep.addEventListener("blur", () => {
-    if(cep.validity.valid){
+    if (cep.validity.valid) {
         const cepNum = cep.value.replace(/[^0-9]+/, "");
-  
+
         fetch(`https://viacep.com.br/ws/${cepNum}/json/`)
-          .then((response) => response.json())
-          .then((data) => {
-            rua.value = data.logradouro || ""
-            cidade.value = data.localidade || ""
-            estado.value = data.uf || ""
-    
-            toggleDisabledCamp(rua);
-            toggleDisabledCamp(cidade);
-            toggleDisabledCamp(estado);
-        })
+            .then((response) => response.json())
+            .then((data) => {
+                rua.value = data.logradouro || ""
+                cidade.value = data.localidade || ""
+                estado.value = data.uf || ""
+
+                toggleDisabledCamp(rua);
+                toggleDisabledCamp(cidade);
+                toggleDisabledCamp(estado);
+            })
     }
 });
 
-function toggleDisabledCamp(element){
+export function toggleDisabledCamp(element) {
     const parent = element.closest('.campo');
 
-    if(element.value === ""){
+    if (element.value === "") {
         parent.classList.remove('campo--desativado');
-    }else{
+    } else {
         parent.classList.add('campo--desativado');
     }
 }
 
 buttons.forEach(function (button) {
     button.addEventListener('click', () => {
-        if(button.classList.contains('botao--secundario')) {
+        event.preventDefault();
+
+        if (button.classList.contains('botao--secundario')) {
             clearForm();
-        }else{
-            submitForm();
+        } else {
+            if (button.classList.contains('botao--salvar')) {
+                saveForm();
+            } else {
+                submitForm();
+            }
         }
     });
 });
 
 function clearForm(input) {
-    inputs.forEach(function(input) {
+
+    inputs.forEach(function (input) {
         input.value = '';
         const parent = input.closest('.campo');
-        
+
         parent.classList.remove('campo--incorreto', 'campo--desativado');
-        
+
         const span = parent.querySelector('span');
         if (span) span.textContent = '';
     });
 
-    inputsUpload.forEach(function(inputUpload) {
-        const fileInput = inputUpload.querySelector('input[type="file"]');
-        fileInput.value = '';
-        const p = fileInput.previousElementSibling;
+    inputsUpload.forEach(function (inputUpload) {
+        inputUpload.value = '';
+        const p = inputUpload.previousElementSibling;
         if (p) p.innerHTML = 'Clique aqui para <br> selecionar o arquivo';
     });
+
+    trilhas.forEach(function (trilha) {
+        if(trilha.checked) trilha.checked = false;
+    })
 
     if (terms) terms.checked = false;
 }

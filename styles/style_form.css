@@ -122,6 +122,7 @@ body {
 .formulario__botoes {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     gap: 1rem;
 }
 
@@ -144,6 +145,10 @@ body {
     color: var(--text-highlight);
     border: 1px solid var(--text-highlight);
     background-color: var(--surface-primary);
+}
+
+.botao--salvar {
+    margin-right: auto;
 }
 
 .botao:hover {
