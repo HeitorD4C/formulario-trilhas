@@ -40,9 +40,11 @@ dom.buttons.forEach(function (button) {
             clear();
         } else {
             if (button.classList.contains('botao--salvar')) {
-                saveForm();
+                saveForm(true);
             } else {
+                saveForm(false);
                 submitForm();
+
             }
         }
     });
@@ -80,6 +82,10 @@ function submitForm() {
     });
 
     if (canSubmit && dom.form.checkValidity()) {
+        if (!localStorage.getItem('statusForm')) {
+            localStorage.setItem('statusForm', `true`);
+        }
+
         dom.form.submit();
         window.location.href = "index.html";
     } else {

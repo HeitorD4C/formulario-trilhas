@@ -4,7 +4,7 @@ const trilhas = document.querySelectorAll('.campo-botoes__input');
 const terms = document.getElementById('aceitar-termos');
 let users = [];
 
-export function saveForm() {
+export function saveForm(booleanAlert) {
 
     inputs.forEach(element => {
         localStorage.setItem(`${element.getAttribute('name')}`, `${element.value}`);
@@ -20,7 +20,9 @@ export function saveForm() {
 
     localStorage.setItem('termos', `${terms.checked}`);
 
-    alert('Dados salvos com sucesso!');
+    if(booleanAlert){
+        alert('Dados salvos com sucesso!');
+    }
 }
 
 export function autoFillForm() {
