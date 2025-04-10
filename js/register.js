@@ -11,7 +11,7 @@ cadastroBtn.addEventListener('click', () => {
         alert('Sucesso!');
         localStorage.setItem('usuario', nomeUsuario.value);
         localStorage.setItem('Senha', senha.value);
-        window.location.href = 'loguin.html';
+        window.location.href = 'login.html';
     }
 })
 
