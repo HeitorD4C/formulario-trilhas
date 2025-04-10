@@ -2,6 +2,7 @@ const inputs = document.querySelectorAll('.campo__input');
 const selects = document.querySelectorAll('.campo__select');
 const trilhas = document.querySelectorAll('.campo-botoes__input');
 const terms = document.getElementById('aceitar-termos');
+let users = [];
 
 export function saveForm() {
 
@@ -41,4 +42,29 @@ export function autoFillForm() {
     })
 
     terms.checked = localStorage.getItem('termos') === 'true';
+}
+
+export function registerUser() {
+    const user = {
+        name: '',
+        password: ''
+    }
+
+    inputs.forEach(element => {
+        switch (element.getAttribute('id')) {
+            case 'nome--usuario':
+                user.name = element.value;
+                break
+            case 'senha':
+                user.password = element.value;
+                break
+        }
+    });
+
+    if (localStorage.getItem('users')) {
+        users = JSON.parse(localStorage.getItem('users'));
+    }
+
+    users.push(user);
+    localStorage.setItem('users', JSON.stringify(users));
 }
