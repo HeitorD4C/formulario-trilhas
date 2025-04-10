@@ -12,7 +12,7 @@ cadastroBtn.addEventListener('click', () => {
 
         alert('Sucesso!');
         registerUser();
-        window.location.href = 'loguin.html';
+        window.location.href = 'login.html';
     }
 })
 

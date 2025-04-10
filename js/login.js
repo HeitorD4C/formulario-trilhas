@@ -9,7 +9,6 @@ buttons.forEach(function (button) {
         if (button.classList.contains('botao--secundario')) {
             window.location.href = 'register.html';
         } else {
-            removeSpan();
             if (inputValidate()) {
                 window.location.href = 'index.html';
             }
@@ -20,6 +19,11 @@ buttons.forEach(function (button) {
 function inputValidate() {
     let isValid = false;
     let userFound = false;
+
+    if (!users || users.length === 0) {
+        addSpan(inputs[0], 'Nenhum usuário cadastrado!');
+        return false;
+    }
 
     for (let i = 0; i < users.length; i++) {
         const user = users[i];
