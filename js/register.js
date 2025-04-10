@@ -1,3 +1,5 @@
+import { registerUser } from "./localStorage.js";
+
 const nomeUsuario = document.querySelector('#nome--usuario');
 const senha = document.querySelector('#senha');
 const confirmaSenha = document.querySelector('#confirmaSenha');
@@ -9,19 +11,17 @@ cadastroBtn.addEventListener('click', () => {
     if (validate() === true) {
 
         alert('Sucesso!');
-        localStorage.setItem('usuario', nomeUsuario.value);
-        localStorage.setItem('Senha', senha.value);
+        registerUser();
         window.location.href = 'login.html';
     }
 })
 
 function validate() {
     let isValid = true;
-    // expressão regular para regras específicas
+    let users = JSON.parse(localStorage.getItem('users'));
     const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?/~`=|-]).{6,}$/;
 
     campos.forEach((input) => {
-
         if (input.value === "") {
             addSpan(input, 'Campos Obrigatórios!');
             isValid = false;
@@ -29,7 +29,20 @@ function validate() {
         else {
             removeSpan(input);
         }
-    })
+    });
+
+    if (users) {
+        for (let i = 0; i < users.length; i++) {
+            if (nomeUsuario.value === users[i].name) {
+                addSpan(campos[0], 'Usuário já existe!');
+                isValid = false;
+                break
+            }
+            else {
+                removeSpan(nomeUsuario);
+            }
+        }
+    }
 
     if (isValid) {
         if (senha.value != confirmaSenha.value) {
